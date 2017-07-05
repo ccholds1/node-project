@@ -17,11 +17,28 @@ app.get('/pair-test', function(request, response) {
   console.log('route succesfully getting hit');
 });
 
-var u1PublicData = [{
+var PublicData = [{
+	"First Name": "Will",
+	"Age": "22",
+	"Hometown": "Monroe, LA",
+	"Number Of Siblings": "1",
+	"Dietary": "Normal",
+},{ 
+	"First Name": "Chris",
+	"Age": "23",
+	"Hometown": "New Orleans, LA",
+	"Number Of Siblings": "2",
+	"Dietary": "Normal",
+}];
 
-}]
+
 
 app.get('/u1PublicData', function(request, response) {  
-  response.send('Hello from Express!');
+  response.send('Foundu1PublicData');
+  console.log('route succesfully getting hit');
+});
+
+app.get('/u2PublicData', function(request, response) {  
+  response.send(u2PublicData);
   console.log('route succesfully getting hit');
 });
