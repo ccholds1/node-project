@@ -18,16 +18,18 @@ app.get('/pair-test', function(request, response) {
 });
 
 var PublicData = [{
-	"First Name": "Will",
+	"id":1,
+	"FirstName": "Will",
 	"Age": "22",
 	"Hometown": "Monroe, LA",
-	"Number Of Siblings": "1",
+	"NumberOfSiblings": "1",
 	"Dietary": "Normal",
 },{ 
-	"First Name": "Chris",
+	"id":2,
+	"FirstName": "Chris",
 	"Age": "23",
 	"Hometown": "New Orleans, LA",
-	"Number Of Siblings": "2",
+	"NumberOfSiblings": "2",
 	"Dietary": "Normal",
 }];
 
