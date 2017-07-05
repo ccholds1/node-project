@@ -17,12 +17,15 @@ app.get('/pair-test', function(request, response) {
   console.log('route succesfully getting hit');
 });
 
-var PublicData = [{
+var UserData = [{
 	"id":1,
 	"FirstName": "Will",
 	"Age": "22",
 	"Hometown": "Monroe, LA",
 	"NumberOfSiblings": "1",
+	"Sports": "Rugby",
+	"Movies": "Monty Python & The Holy Grail",
+	"clowns?": "Yes",
 	"Dietary": "Normal",
 },{ 
 	"id":2,
@@ -30,17 +33,24 @@ var PublicData = [{
 	"Age": "23",
 	"Hometown": "New Orleans, LA",
 	"NumberOfSiblings": "2",
+	"Sports": "Rugby",
+	"Movies": "Monty Python & The Holy Grail",
+	"clowns?": "No",
 	"Dietary": "Normal",
 }];
 
 
 
-app.get('/u1PublicData', function(request, response) {  
+
+
+
+
+app.get('/UserData', function(request, response) {  
   response.send('Foundu1PublicData');
   console.log('route succesfully getting hit');
 });
 
-app.get('/u2PublicData', function(request, response) {  
+app.get('/UserData', function(request, response) {  
   response.send(u2PublicData);
   console.log('route succesfully getting hit');
 });
