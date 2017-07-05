@@ -1,0 +1,11 @@
+{
+  "name": "will-and-chris-first-app",
+  "version": "1.0.0",
+  "description": "this is a starter project for the loyola class",
+  "main": "server.js",
+  "author": "Will and Chris",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
