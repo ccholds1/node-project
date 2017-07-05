@@ -1,11 +1,19 @@
 const express = require('express')  
 const app = express()  
 const port = 3333
+	var bodyParser = require('body-parser')
+
+
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 app.listen(port, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
+
+
 
   console.log(`Magic is happening on ${port}`)
 });
@@ -40,13 +48,14 @@ var CameraData = [{
 
 }];
 
+app.post('/CameraData', function(request, response){
+	CameraData.push(request.body);
+	console.log(CameraData.push);
+})
 
 app.get('/CameraData', function(request, response) {  
-  response.send('Foundu1PublicData');
+  response.send(CameraData);
   console.log('route succesfully getting hit');
 });
 
-app.get('/UserData', function(request, response) {  
-  response.send(u2PublicData);
-  console.log('route succesfully getting hit');
-});
+
