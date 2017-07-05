@@ -17,11 +17,7 @@ app.get('/pair-test', function(request, response) {
   console.log('route succesfully getting hit');
 });
 
-var u1PublicData = [{}]
-
-}
-
 app.get('/u1PublicData', function(request, response) {  
-  response.send('u1PublicData found');
+  response.send('Hello from Express!');
   console.log('route succesfully getting hit');
 });
