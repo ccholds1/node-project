@@ -17,35 +17,31 @@ app.get('/pair-test', function(request, response) {
   console.log('route succesfully getting hit');
 });
 
-var UserData = [{
+var CameraData = [{
 	"id":1,
-	"FirstName": "Will",
-	"Age": "22",
-	"Hometown": "Monroe, LA",
-	"NumberOfSiblings": "1",
-	"Sports": "Rugby",
-	"Movies": "Monty Python & The Holy Grail",
-	"clowns?": "Yes",
-	"Dietary": "Normal",
+	"Make": "Sony",
+	"Model": "A7S II",
+	"MSRP": "$2999.99",
+	"Weight": "22 oz",
+	"Resolution": "HD",
+	"SensorSize": "35 mm",
+	"MaxISO": "102,400",
+	"MinISO": "100",
 },{ 
 	"id":2,
-	"FirstName": "Chris",
-	"Age": "23",
-	"Hometown": "New Orleans, LA",
-	"NumberOfSiblings": "2",
-	"Sports": "Rugby",
-	"Movies": "Monty Python & The Holy Grail",
-	"clowns?": "No",
-	"Dietary": "Normal",
+	"Make": "RED",
+	"Model": "Weapon",
+	"MSRP": "$49,500",
+	"Weight": "52.8 oz",
+	"Resolution": "8K",
+	"SensorSize": "33.8 mm",
+	"MaxISO": "102,500",
+	"MinISO": "100",
+
 }];
 
 
-
-
-
-
-
-app.get('/UserData', function(request, response) {  
+app.get('/CameraData', function(request, response) {  
   response.send('Foundu1PublicData');
   console.log('route succesfully getting hit');
 });
