@@ -48,14 +48,39 @@ var CameraData = [{
 
 }];
 
-app.post('/CameraData', function(request, response){
-	CameraData.push(request.body);
-	console.log(CameraData.push);
-})
+// app.post('/CameraData', function(request, response){
+// 	CameraData.push(request.body);
+// 	console.log(CameraData.push);
+// });
 
-app.get('/CameraData', function(request, response) {  
-  response.send(CameraData);
-  console.log('route succesfully getting hit');
+// app.get('/CameraData', function(request, response){  
+//   response.send(CameraData[]);
+//   console.log('route succesfully getting hit');
+// });
+
+// app.post('/CameraData', function(request, response){
+// 	CameraData.push(request.body);
+
+// 	console.log(CameraData.push);
+// });
+
+
+app.post('/CameraData', function(request,response){
+
+	var requestData = request.body
+	console.log(requestData);
+	for (var i = 0; i < CameraData.length; i++){
+		if (CameraData[i].id == requestData.id){
+			CameraData[i].MSRP == requestData.MSRP
+			console.log(CameraData[i])
+	} 
+	}
+	console.log(CameraData);
 });
+
+
+
+
+
 
 
