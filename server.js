@@ -26,7 +26,7 @@ app.get('/pair-test', function(request, response) {
 });
 
 var CameraData = [{
-	"id":1,
+	"id":"1",
 	"Make": "Sony",
 	"Model": "A7S II",
 	"MSRP": "$2999.99",
@@ -36,7 +36,7 @@ var CameraData = [{
 	"MaxISO": "102,400",
 	"MinISO": "100",
 },{ 
-	"id":2,
+	"id":"2",
 	"Make": "RED",
 	"Model": "Weapon",
 	"MSRP": "$49,500",
@@ -58,25 +58,25 @@ var CameraData = [{
 //   console.log('route succesfully getting hit');
 // });
 
-// app.post('/CameraData', function(request, response){
-// 	CameraData.push(request.body);
+	app.post('/CameraData', function(request, response){
+ 	CameraData.push(request.body);
 
-// 	console.log(CameraData.push);
-// });
-
-
-app.post('/CameraData', function(request,response){
-
-	var requestData = request.body
-	console.log(requestData);
-	for (var i = 0; i < CameraData.length; i++){
-		if (CameraData[i].id == requestData.id){
-			CameraData[i].MSRP == requestData.MSRP
-			console.log(CameraData[i])
-	} 
-	}
 	console.log(CameraData);
-});
+ });
+
+
+// app.post('/CameraData', function(request,response){
+
+// 	var requestData = request.body
+// 	console.log(requestData);
+// 	for (var i = 0; i < CameraData.length; i++){
+// 		if (CameraData[i].id == requestData.id){
+// 			CameraData[i].MSRP == requestData.MSRP
+// 			console.log(CameraData[i])
+// 	} 
+// 	}
+// 	console.log(CameraData);
+// });
 
 
 
