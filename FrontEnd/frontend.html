@@ -3,6 +3,11 @@
 <head>
 	<title>Forms</title>
 
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>	
+
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -11,6 +16,8 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
 
 </head>
 
@@ -56,7 +63,7 @@
 	</nav>
 
 <div class="row" style="background-color: lightgrey; margin-right:0px;">
-	<p style="margin-left: 40px;margin-top: 68px; display: inline-block;">hello</p>
+	<div id="CameraData" style="margin-left: 40px;margin-top: 68px; display: inline-block;"></div>
 	<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-3" style="height:920px; background-color: grey; padding-top: 65px; margin-left: 12px;">
 		<div>
 			<div class="input-forms" style="margin: auto;">
@@ -87,8 +94,22 @@
 
 </div>
 
-<script type="text/javascript">
-	
+<script>
+	$.get('http://localhost:3333/CameraData', function(data){
+                CameraData=data;
+                var element ="";
+                for (var i = 0; i < CameraData.length; i++){
+                    console.log(CameraData[i]);
+                    
+                    element+="<div class=header><h1>"+CameraData[i].Make+"</h1>";
+                    element+="<h2>"+CameraData[i].Model+"</h2></div>";
+                    element+="<p>"+CameraData[i].MSRP+"</p><p>"+CameraData[i].Weight+"</p><p>"+CameraData[i].Resolution+"</p><p>"+CameraData[i].SenssorSize+"</p><p>"+CameraData[i].MaxISO+"</p><p>"+CameraData[i].MinISO+"</p><p>";
+                
+                }
+            
+                $('#CameraData').append(element);
+            
+            });
 </script>
 
 </body>

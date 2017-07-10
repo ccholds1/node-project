@@ -1,7 +1,8 @@
 const express = require('express')  
 const app = express()  
 const port = 3333
-	var bodyParser = require('body-parser')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -53,10 +54,10 @@ var CameraData = [{
 // 	console.log(CameraData.push);
 // });
 
-// app.get('/CameraData', function(request, response){  
-//   response.send(CameraData[]);
-//   console.log('route succesfully getting hit');
-// });
+app.get('/CameraData', function(request, response){  
+response.send(CameraData);
+console.log('route succesfully getting hit');
+});
 
 	app.post('/CameraData', function(request, response){
  	CameraData.push(request.body);
@@ -78,9 +79,44 @@ var CameraData = [{
 // 	console.log(CameraData);
 // });
 
+Schema = new mongoose.Schema
+({
+	id			:String,
+	title		:String,
+	completed	: Boolean,
+}),
+
+Todo = mongoose.model('Todo', Schema);
 
 
+mongoose.connect('mongodb://heroku_0706c5d0:4t3atrdgihg1jkn729em2kctug@ds153412.mlab.com:53412/heroku_0706c5d0', function (error) 
+{
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
 
+/*Todo.find(function(err, todos){
+	res.json(200,todos);
+});
+
+
+app.post('/api/cameras',function(req,res)
+	{
+	var camera = new Camera();
+	camera=
+	{
+		"Make":"yes",
+	};
+
+camera.save(function(err)
+	{
+	console.log(challenge)
+	if (err)
+		res.send(err);
+
+	res.json({message: "Camera Created!"})
+	});
+*/
 
 
 
