@@ -46,7 +46,6 @@ var CameraData = [{
 	"SensorSize": "33.8 mm",
 	"MaxISO": "102,500",
 	"MinISO": "100",
-
 }];
 
 // app.post('/CameraData', function(request, response){
@@ -54,16 +53,7 @@ var CameraData = [{
 // 	console.log(CameraData.push);
 // });
 
-app.get('/CameraData', function(request, response){  
-response.send(CameraData);
-console.log('route succesfully getting hit');
-});
 
-	app.post('/CameraData', function(request, response){
- 	CameraData.push(request.body);
-
-	console.log(CameraData);
- });
 
 
 // app.post('/CameraData', function(request,response){
@@ -82,19 +72,74 @@ console.log('route succesfully getting hit');
 Schema = new mongoose.Schema
 ({
 	id			:String,
-	title		:String,
-	completed	: Boolean,
-}),
+	Make		:String,
+	Model		:String,
+	MSRP		:String,
+	Weight		:String,
+	Resolution	:String,
+	SensorSize	:String,
+	MaxISO		:String,
+	MinISO		:String,
 
-Todo = mongoose.model('Todo', Schema);
+},{collection: 'Camera'}),
 
 
-mongoose.connect('mongodb://heroku_0706c5d0:4t3atrdgihg1jkn729em2kctug@ds153412.mlab.com:53412/heroku_0706c5d0', function (error) 
+
+mongoose.connect('mongodb://heroku_fhc6q208:psbn1hmfrq4fcmvhst2skbb461@ds153752.mlab.com:53752/heroku_fhc6q208', function (error) 
 {
     if (error) console.error(error);
     else console.log('mongo connected');
 }); 
 
+// Cameras.find(function(err, CameraData){
+// 	console.log(CameraData)
+// })
+
+mongoose.model('Camera',Schema);
+var Cameras = mongoose.model('Camera');
+
+app.get('/CameraData', function(request, response){
+	Cameras.find({}, function(err,Camera){
+		if(err){
+			console.log('you shall not pass');
+		}else{
+			response.send(Camera);
+			console.log(Camera)
+			console.log('great success!');
+			
+		}
+	});
+// response.send(CameraData);
+// console.log('route succesfully getting hit');
+});
+
+
+
+
+
+app.post('/CameraData', function(request, response){
+	var camera = new Cameras(request.body);
+	console.log("this is my new camera data:", camera);
+	// console.log(camera);
+	camera.save(function(err) {
+		if(err){
+			console.log('wtf');
+		}else{
+			console.log("hell yeah brother");
+		}
+	});
+// CameraData.push(request.body);
+// console.log(CameraData);
+ })
+// app.get('/CameraData', function(request,response){
+// 	Cameras.find({}, function(err,Camera){
+// 		if(err){
+
+// 		}else{
+
+// 		}
+// 	});
+// });
 /*Todo.find(function(err, todos){
 	res.json(200,todos);
 });

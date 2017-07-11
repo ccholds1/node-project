@@ -70,26 +70,34 @@
 		<div>
 			<div class="input-forms" style="margin: auto;">
 					<div class="input-group" style="width: 100%;">
-						<input type="text" class="form-control" placeholder="ID">
+						<input id="id" type="text" class="form-control" placeholder="ID">
 					</div>
 
 					<div class="input-group" style="width: 100%;">
-					  	<input type="text" class="form-control" aria-label=# placeholder="Make">
+					  	<input id="make" type="text" class="form-control" aria-label=# placeholder="Make">
 					</div>
 
 					<div class="input-group" style="width: 100%;">		 
-					  	<input type="text" class="form-control" aria-label=# placeholder="Model">
+					  	<input id="model" type="text" class="form-control" aria-label=# placeholder="Model">
 					</div>
 
 					<div class="input-group" style="width: 100%;">
-					  	<input type="text" class="form-control" aria-label=# placeholder="MSRP">
+					  	<input id="msrp" type="text" class="form-control" aria-label=# placeholder="MSRP">
 					</div>
 
 					<div class="input-group" style="width: 100%;">	 
-					 	 <input type="text" class="form-control" aria-label=# placeholder="Resolution"> 
+					 	 <input id="resolution" type="text" class="form-control" aria-label=# placeholder="Resolution"> 
 					</div>
 
-					<button style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default">Submit</button>
+					<!-- <div class="input-group" style="width: 100%;">	 
+					 	 <input id="resolution" type="text" class="form-control" aria-label=# placeholder="Resolution"> 
+					</div>
+
+					<div class="input-group" style="width: 100%;">	 
+					 	 <input id="resolution" type="text" class="form-control" aria-label=# placeholder="Resolution"> 
+					</div>
+ -->
+					<button id="submit" style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default">Submit</button>
 			</div>
 		</div>
 	</div> <!--form side-bar-->
@@ -97,11 +105,41 @@
 </div>
 
 <script>
+	$('#submit').click(function(){
+			// console.log('I\'m hit');
+		
+
+		$('#id').val();
+		$('#make').val();
+		$('#model').val();
+		$('#msrp').val();
+		$('#resolution').val();
+			// console.log($('#id').val());
+			// console.log($('#make').val());
+			// console.log($('#model').val());
+			// console.log($('#msrp').val());
+			// console.log($('#resolution').val());
+
+			var CameraData = {
+				"id": $('#id').val(),
+				"Make": $('#make').val(),
+				"Model": $('#model').val(),
+				"MSRP": $('#msrp').val(),
+				"Resolution": $('#resolution').val()
+			}
+$.post('http://localhost:3333/CameraData', CameraData, function(err,res){
+		// console.log(CameraData)		
+		});
+
+	});
+
+	
 	$.get('http://localhost:3333/CameraData', function(data){
                 CameraData=data;
                 var element ="";
+                console.log(data);
                 for (var i = 0; i < CameraData.length; i++){
-                    console.log(CameraData[i]);
+                    
                     
                     element+="<div class=Camera><div class=header><h2 id=Make>"+CameraData[i].Make+"</h2>";
 
