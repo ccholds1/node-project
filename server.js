@@ -93,7 +93,7 @@ mongoose.connect('mongodb://heroku_0706c5d0:4t3atrdgihg1jkn729em2kctug@ds153412.
 {
     if (error) console.error(error);
     else console.log('mongo connected');
-});
+}); 
 
 /*Todo.find(function(err, todos){
 	res.json(200,todos);

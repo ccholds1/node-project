@@ -103,9 +103,11 @@
                 for (var i = 0; i < CameraData.length; i++){
                     console.log(CameraData[i]);
                     
-                    element+="<div class=header><h1>"+CameraData[i].Make+"</h1>";
-                    element+="<h2>"+CameraData[i].Model+"</h2></div>";
-                    element+="<p>"+CameraData[i].MSRP+"</p><p>"+CameraData[i].Weight+"</p><p>"+CameraData[i].Resolution+"</p><p>"+CameraData[i].SenssorSize+"</p><p>"+CameraData[i].MaxISO+"</p><p>"+CameraData[i].MinISO+"</p><p>";
+                    element+="<div class=Camera><div class=header><h2 id=Make>"+CameraData[i].Make+"</h2>";
+
+                    element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
+
+                    element+="<div class=CameraInfo><p id=MSRP>"+CameraData[i].MSRP+"</p><p id=Weight>"+CameraData[i].Weight+"</p><p id=Resolution>"+CameraData[i].Resolution+"</p><p id=SensorSize>"+CameraData[i].SensorSize+"</p><p id=MaxISO>"+CameraData[i].MaxISO+"</p><p id=MinISO>"+CameraData[i].MinISO+"</p><p></div></div>";
                 
                 }
             
