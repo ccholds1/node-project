@@ -97,7 +97,7 @@
 					 	 <input id="resolution" type="text" class="form-control" aria-label=# placeholder="Resolution"> 
 					</div>
  -->
-					<button id="trak" style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default" onclick="trak()">Submit</button>
+					<button id="submit" style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default">Submit</button>
 			</div>
 		</div>
 	</div> <!--form side-bar-->
@@ -107,7 +107,7 @@
 <script>
 
 var url = 'camtrak-demo-app.herokuapp.com'
-function trak(){
+
 	$('#submit').click(function(){
 			// console.log('I\'m hit');
 		
@@ -125,9 +125,8 @@ function trak(){
 			"Camera_Set_Location": $('#location').val(),
 			"Camera_Operator": $('#operator').val()
 				}
-		
-}
-$.post('http://camtrak-demo-app.herokuapp.com/CameraData', CameraData, function(err,res){
+
+$.post('/CameraData', CameraData, function(err,res){
 		// console.log(CameraData)		
 
 
@@ -144,7 +143,7 @@ $.post('http://camtrak-demo-app.herokuapp.com/CameraData', CameraData, function(
 	
 
 
-$.get('http://camtrak-demo-app.herokuapp.com/CameraData', function(data){
+$.get('/CameraData', function(data){
                 CameraData=data;
                 var element ="";
                 console.log(data);
