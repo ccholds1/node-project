@@ -68,7 +68,7 @@
 	<div id="CameraData" style="margin-left: 40px;margin-top: 68px; display: inline-block; w"></div>
 	<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-3" style="height:920px; background-color: grey; padding-top: 65px; margin-left: 12px;">
 		<div>
-			<div class="input-forms" style="margin: auto;">
+			<div id="all_forms" class="input-forms" style="margin: auto;">
 					<div class="input-group" style="width: 100%;">
 						<input id="id" type="text" class="form-control" placeholder="ID">
 					</div>
@@ -82,11 +82,11 @@
 					</div>
 
 					<div class="input-group" style="width: 100%;">
-					  	<input id="msrp" type="text" class="form-control" aria-label=# placeholder="MSRP">
+					  	<input id="location" type="text" class="form-control" aria-label=# placeholder="Camera_Set_Location">
 					</div>
 
 					<div class="input-group" style="width: 100%;">	 
-					 	 <input id="resolution" type="text" class="form-control" aria-label=# placeholder="Resolution"> 
+					 	 <input id="operator" type="text" class="form-control" aria-label=# placeholder="Camera_Operator"> 
 					</div>
 
 					<!-- <div class="input-group" style="width: 100%;">	 
@@ -105,6 +105,7 @@
 </div>
 
 <script>
+
 	$('#submit').click(function(){
 			// console.log('I\'m hit');
 		
@@ -112,28 +113,32 @@
 		$('#id').val();
 		$('#make').val();
 		$('#model').val();
-		$('#msrp').val();
-		$('#resolution').val();
-			// console.log($('#id').val());
-			// console.log($('#make').val());
-			// console.log($('#model').val());
-			// console.log($('#msrp').val());
-			// console.log($('#resolution').val());
+		$('#location').val();
+		$('#operator').val();
 
-			var CameraData = {
-				"id": $('#id').val(),
-				"Make": $('#make').val(),
-				"Model": $('#model').val(),
-				"MSRP": $('#msrp').val(),
-				"Resolution": $('#resolution').val()
-			}
+		var CameraData = {
+			"id": $('#id').val(),
+			"Make": $('#make').val(),
+			"Model": $('#model').val(),
+			"Camera_Set_Location": $('#location').val(),
+			"Camera_Operator": $('#operator').val()
+				}
 $.post('http://localhost:3333/CameraData', CameraData, function(err,res){
 		// console.log(CameraData)		
+
+
 		});
 
 	});
 
+
+	// window.onload = function (){
+	// 	get()
+	// }
+
+	// function get(){
 	
+
 	$.get('http://localhost:3333/CameraData', function(data){
                 CameraData=data;
                 var element ="";
@@ -145,13 +150,17 @@ $.post('http://localhost:3333/CameraData', CameraData, function(err,res){
 
                     element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
 
-                    element+="<div class=CameraInfo><p id=MSRP>"+CameraData[i].MSRP+"</p><p id=Weight>"+CameraData[i].Weight+"</p><p id=Resolution>"+CameraData[i].Resolution+"</p><p id=SensorSize>"+CameraData[i].SensorSize+"</p><p id=MaxISO>"+CameraData[i].MaxISO+"</p><p id=MinISO>"+CameraData[i].MinISO+"</p><p></div></div>";
+                    element+="<div class=CameraInfo><p id=location>"+CameraData[i].Camera_Set_Location+"</p><p id=operator>"+CameraData[i].Camera_Operator+"</p></div></div>";
                 
                 }
             
                 $('#CameraData').append(element);
             
             });
+	// document.getElementsById('all_forms').reset();
+	// console.log("good to go");
+// };
+
 </script>
 
 </body>

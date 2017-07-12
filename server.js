@@ -30,22 +30,14 @@ var CameraData = [{
 	"id":"1",
 	"Make": "Sony",
 	"Model": "A7S II",
-	"MSRP": "$2999.99",
-	"Weight": "22 oz",
-	"Resolution": "HD",
-	"SensorSize": "35 mm",
-	"MaxISO": "102,400",
-	"MinISO": "100",
+	"Camera Set Location": "Sound Stage A",
+    "Camera Operator": "John Smith"
 },{ 
 	"id":"2",
 	"Make": "RED",
 	"Model": "Weapon",
-	"MSRP": "$49,500",
-	"Weight": "52.8 oz",
-	"Resolution": "8K",
-	"SensorSize": "33.8 mm",
-	"MaxISO": "102,500",
-	"MinISO": "100",
+	"Camera Set Location": "Sound Stage B",
+    "Camera Operator": "Amy Johnson"
 }];
 
 // app.post('/CameraData', function(request, response){
@@ -74,12 +66,8 @@ Schema = new mongoose.Schema
 	id			:String,
 	Make		:String,
 	Model		:String,
-	MSRP		:String,
-	Weight		:String,
-	Resolution	:String,
-	SensorSize	:String,
-	MaxISO		:String,
-	MinISO		:String,
+	Camera_Set_Location	:String,
+	Camera_Operator	:String,
 
 },{collection: 'Camera'}),
 
@@ -104,8 +92,8 @@ app.get('/CameraData', function(request, response){
 			console.log('you shall not pass');
 		}else{
 			response.send(Camera);
-			console.log(Camera)
-			console.log('great success!');
+			// console.log(Camera);
+			// console.log('great success!');
 			
 		}
 	});
