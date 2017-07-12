@@ -16,7 +16,7 @@ app.listen(process.env.PORT || 5000, function(err) {
 
 
 
-  console.log(`Magic is happening on ${port}`)
+  console.log(`Magic is happening on ${process.env.PORT}`)
 });
 
 
