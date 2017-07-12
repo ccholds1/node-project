@@ -120,7 +120,7 @@ app.post('/CameraData', function(request, response){
 // console.log(CameraData);
  })
 
-app.use(expres.static('FrontEnd'));
+app.use(express.static('FrontEnd'));
 
 
 
