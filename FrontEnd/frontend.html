@@ -140,7 +140,7 @@ $.post('https://camtrak-demo-app.herokuapp.com/CameraData', CameraData, function
 	
 var url = process.env.url
 
-	$.get('https://camtrak-demo-app.herokuapp.com/CameraData', function(data){
+	$.get('https://camtrak-demo-app.herokuapp.com'+'/CameraData', function(data){
                 CameraData=data;
                 var element ="";
                 console.log(data);

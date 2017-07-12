@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.listen(port, function(err) {  
+app.listen(process.env.PORT || 5000, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
@@ -30,14 +30,14 @@ var CameraData = [{
 	"id":"1",
 	"Make": "Sony",
 	"Model": "A7S II",
-	"Camera Set Location": "Sound Stage A",
-    "Camera Operator": "John Smith"
+	"Camera_Set_Location": "Sound Stage A",
+    "Camera_Operator": "John Smith"
 },{ 
 	"id":"2",
 	"Make": "RED",
 	"Model": "Weapon",
-	"Camera Set Location": "Sound Stage B",
-    "Camera Operator": "Amy Johnson"
+	"Camera_Set_Location": "Sound Stage B",
+    "Camera_Operator": "Amy Johnson"
 }];
 
 // app.post('/CameraData', function(request, response){
@@ -119,37 +119,9 @@ app.post('/CameraData', function(request, response){
 // CameraData.push(request.body);
 // console.log(CameraData);
  })
-// app.get('/CameraData', function(request,response){
-// 	Cameras.find({}, function(err,Camera){
-// 		if(err){
-
-// 		}else{
-
-// 		}
-// 	});
-// });
-/*Todo.find(function(err, todos){
-	res.json(200,todos);
-});
 
 
-app.post('/api/cameras',function(req,res)
-	{
-	var camera = new Camera();
-	camera=
-	{
-		"Make":"yes",
-	};
-
-camera.save(function(err)
-	{
-	console.log(challenge)
-	if (err)
-		res.send(err);
-
-	res.json({message: "Camera Created!"})
-	});
-*/
+)
 
 
 
