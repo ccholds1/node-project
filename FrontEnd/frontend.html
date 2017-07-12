@@ -123,7 +123,7 @@
 			"Camera_Set_Location": $('#location').val(),
 			"Camera_Operator": $('#operator').val()
 				}
-$.post('https://camtrak-demo-app.herokuapp.com/', CameraData, function(err,res){
+$.post('https://camtrak-demo-app.herokuapp.com/CameraData', CameraData, function(err,res){
 		// console.log(CameraData)		
 
 
@@ -140,7 +140,7 @@ $.post('https://camtrak-demo-app.herokuapp.com/', CameraData, function(err,res){
 	
 var url = process.env.url
 
-	$.get('https://camtrak-demo-app.herokuapp.com/', function(data){
+	$.get('https://camtrak-demo-app.herokuapp.com/CameraData', function(data){
                 CameraData=data;
                 var element ="";
                 console.log(data);
