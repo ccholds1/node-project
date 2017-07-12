@@ -69,7 +69,7 @@
 	<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-3" style="height:920px; background-color: grey; padding-top: 65px; margin-left: 12px;">
 		<div>
 			<div id="all_forms" class="input-forms" style="margin: auto;">
-					<div class="input-group" style="width: 100%;">
+					<div name="input-group" style="width: 100%;">
 						<input id="id" type="text" class="form-control" placeholder="ID">
 					</div>
 
@@ -82,11 +82,11 @@
 					</div>
 
 					<div class="input-group" style="width: 100%;">
-					  	<input id="location" type="text" class="form-control" aria-label=# placeholder="Camera_Set_Location">
+					  	<input id="location" type="text" class="form-control" aria-label=# placeholder="Camera Location">
 					</div>
 
 					<div class="input-group" style="width: 100%;">	 
-					 	 <input id="operator" type="text" class="form-control" aria-label=# placeholder="Camera_Operator"> 
+					 	 <input id="operator" type="text" class="form-control" aria-label=# placeholder="Camera Operator"> 
 					</div>
 
 					<!-- <div class="input-group" style="width: 100%;">	 
@@ -97,7 +97,7 @@
 					 	 <input id="resolution" type="text" class="form-control" aria-label=# placeholder="Resolution"> 
 					</div>
  -->
-					<button id="submit" style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default">Submit</button>
+					<button id="trak" style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default" onclick="trak()">Submit</button>
 			</div>
 		</div>
 	</div> <!--form side-bar-->
@@ -105,8 +105,9 @@
 </div>
 
 <script>
-var url = 'camtrak-demo-app.herokuapp.com'
 
+var url = 'camtrak-demo-app.herokuapp.com'
+function trak(){
 	$('#submit').click(function(){
 			// console.log('I\'m hit');
 		
@@ -124,7 +125,9 @@ var url = 'camtrak-demo-app.herokuapp.com'
 			"Camera_Set_Location": $('#location').val(),
 			"Camera_Operator": $('#operator').val()
 				}
-$.post('https://camtrak-demo-app.herokuapp.com'+'/CameraData', CameraData, function(err,res){
+		
+}
+$.post('http://camtrak-demo-app.herokuapp.com/CameraData', CameraData, function(err,res){
 		// console.log(CameraData)		
 
 
@@ -141,7 +144,7 @@ $.post('https://camtrak-demo-app.herokuapp.com'+'/CameraData', CameraData, funct
 	
 
 
-	$.get('https://camtrak-demo-app.herokuapp.com'+'/CameraData', function(data){
+$.get('http://camtrak-demo-app.herokuapp.com/CameraData', function(data){
                 CameraData=data;
                 var element ="";
                 console.log(data);
@@ -152,7 +155,7 @@ $.post('https://camtrak-demo-app.herokuapp.com'+'/CameraData', CameraData, funct
 
                     element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
 
-                    element+="<div class=CameraInfo><p id=location>"+CameraData[i].Camera_Set_Location+"</p><p id=operator>"+CameraData[i].Camera_Operator+"</p></div></div>";
+                    element+="<div class=CameraInfo><p id=Camera_Set_Location>"+CameraData[i].Camera_Set_Location+"</p><p id=Camera_Operator>"+CameraData[i].Camera_Operator+"</p></div></div></div>";
                 
                 }
             
