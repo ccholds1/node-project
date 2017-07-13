@@ -5,6 +5,10 @@
 	background-color: lightgrey;
 }
 
+.row {
+	margin: 0px;
+}
+
 .grid {
 /*	outline: solid;*/
 	margin-top: 51px;
