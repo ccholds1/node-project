@@ -35,8 +35,8 @@
 
 .cameras {
 /*	outline: solid;*/
-	margin-left: 250px;
-	margin-right: 100px;
+/*	margin-left: 250px;
+	margin-right: 100px;*/
 }
 
 .Camera {
@@ -49,7 +49,7 @@
 }
 
 .header {
-	width: auto;
+	width: 500px;
 }
 
 .header h2 {
