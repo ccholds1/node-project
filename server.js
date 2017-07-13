@@ -113,7 +113,7 @@ app.post('/CameraData', function(request, response){
 		if(err){
 			console.log('wtf');
 		}else{
-			response.send("");
+			response.send("success":true);
 			console.log("hell yeah brother");
 			
 		}
