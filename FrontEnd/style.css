@@ -48,6 +48,10 @@
 	margin-top: 10px; 
 }
 
+.header h2 {
+	display: inline;
+}
+
 #Make {
 	font-weight: bolder;
 	font-size: 40px;
@@ -60,7 +64,6 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-right:11px;
-	display: inline;
 }
 
 .CameraInfo {
