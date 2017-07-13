@@ -70,3 +70,7 @@
 	margin-top: 10px;
 	margin-left: 2px;
 } 
+
+.form-control {
+	border-radius: 1px;
+}
