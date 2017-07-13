@@ -43,7 +43,7 @@
 	height: auto;
 	background-color: white;
 	border-radius: 6px;
-	width: auto;
+	min-width: auto;
 	padding: 12px 12px 12px 12px;
 	margin-top: 10px; 
 }
