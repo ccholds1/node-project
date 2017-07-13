@@ -48,6 +48,10 @@
 	margin-top: 10px; 
 }
 
+.header {
+	width: auto;
+}
+
 .header h2 {
 	display: inline;
 }
