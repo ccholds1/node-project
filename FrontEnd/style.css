@@ -18,6 +18,7 @@
 	width: auto;
 	float: left;
 	top: 51px;
+	left: 0px;
 }
 
 .grid {
@@ -54,7 +55,7 @@ width: auto;
 }
 
 .header {
-	width: 500px;
+	width: auto;
 }
 
 .header h2 {
