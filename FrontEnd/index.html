@@ -19,11 +19,21 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
+<!-- Autoscrolling -->
+	   <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#click").click(function (){
+                $('html, body').animate({
+                    scrollTop: $("#cam1").offset().top
+                }, 2000);
+            });
+        });
+    </script> -->
 
 </head>
 
-<body>
+<body class="body">
 
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -41,14 +51,15 @@
 	      		</a>
 		</div>
 
-
-
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="https://www.bhphotovideo.com/c/browse/Professional-Video/ci/3755/N/4294545851">B&H Video</a></li>
-	         <li><a href="#">Link</a></li>
-	          <li><a href="#">Link</a></li>
+
+<!-- 	        more links -->
+	         <!-- <li><a href="#">Link</a></li>
+	          <li><a href="#">Link</a></li> -->
+
 	        <!--<li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
@@ -64,10 +75,21 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-<div class="row" style="background-color: lightgrey; margin-right:0px;">
-	<div id="CameraData" style="margin-left: 40px;margin-top: 68px; display: inline-block; w"></div>
-	<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-3" style="height:920px; background-color: grey; padding-top: 65px; margin-left: 12px;">
-		<div>
+
+
+	<div class="row">
+
+		<div class="grid col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<div class="data">
+				<div class="cameras">
+					<div class="cambox" id="CameraData">
+					</div>
+				</div>
+			</div>
+			<div class="leftbar affix col-lg-2 col-md-2 col-sm-2 col-xs-3">
+
+					<div class="forms">
 			<div id="all_forms" class="input-forms" style="margin: auto;">
 					<div name="input-group" style="width: 100%;">
 						<input id="id" type="text" class="form-control" placeholder="ID">
@@ -80,6 +102,10 @@
 					<div class="input-group" style="width: 100%;">		 
 					  	<input id="model" type="text" class="form-control" aria-label=# placeholder="Model">
 					</div>
+
+					<!-- <div class="input-group" style="width: 100%;">		 
+					  	<input id="model" type="text" class="form-control" aria-label=# placeholder="Insured Value">
+					</div> -->
 
 					<div class="input-group" style="width: 100%;">
 					  	<input id="location" type="text" class="form-control" aria-label=# placeholder="Camera Location">
@@ -100,72 +126,74 @@
 					<button id="submit" style="margin-top: 15px; width: 100%;" type="submit" class="btn btn-default">Submit</button>
 			</div>
 		</div>
-	</div> <!--form side-bar-->
-
-</div>
-
-<script>
-
-var url = 'camtrak-demo-app.herokuapp.com'
-
-	$('#submit').click(function(){
-			// console.log('I\'m hit');
+				
+			</div>
+		</div>
 		
+	</div>
 
-		$('#id').val();
-		$('#make').val();
-		$('#model').val();
-		$('#location').val();
-		$('#operator').val();
+	<script>
 
-		var CameraData = {
-			"id": $('#id').val(),
-			"Make": $('#make').val(),
-			"Model": $('#model').val(),
-			"Camera_Set_Location": $('#location').val(),
-			"Camera_Operator": $('#operator').val()
-				}
+	var url = 'camtrak-demo-app.herokuapp.com'
+	// var url = 'localhost:3333/CameraData'
 
-$.post('/CameraData', CameraData, function(err,res){
-		// console.log(CameraData)		
+		$('#submit').click(function(){
+				// console.log('I\'m hit');
+			
 
+			$('#id').val();
+			$('#make').val();
+			$('#model').val();
+			$('#location').val();
+			$('#operator').val();
+
+			var CameraData = {
+				"id": $('#id').val(),
+				"Make": $('#make').val(),
+				"Model": $('#model').val(),
+				"Camera_Set_Location": $('#location').val(),
+				"Camera_Operator": $('#operator').val()
+					}
+
+	$.post('/CameraData', CameraData, function(err,res){
+			// console.log(CameraData)		
+
+
+			});
 
 		});
 
-	});
+
+		// window.onload = function (){
+		// 	get()
+		// }
+
+		// function get(){
+		
 
 
-	// window.onload = function (){
-	// 	get()
-	// }
+	$.get('/CameraData', function(data){
+	                CameraData=data;
+	                var element ="";
+	                console.log(data);
+	                for (var i = 0; i < CameraData.length; i++){
+	                    
+	                    
+	                    element+="<div class=Camera><div class=header><h2 id=Make>"+CameraData[i].Make+"</h2>";
 
-	// function get(){
-	
+	                    element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
 
+	                    element+="<div class=CameraInfo><p id=Camera_Set_Location>"+CameraData[i].Camera_Set_Location+"</p><p id=Camera_Operator>"+CameraData[i].Camera_Operator+"</p></div></div></div>";
+	                
+	                }
+	            
+	                $('#CameraData').append(element);
+	            
+	            });
+		// document.getElementsById('all_forms').reset();
+		// console.log("good to go");
+	// };
 
-$.get('/CameraData', function(data){
-                CameraData=data;
-                var element ="";
-                console.log(data);
-                for (var i = 0; i < CameraData.length; i++){
-                    
-                    
-                    element+="<div class=Camera><div class=header><h2 id=Make>"+CameraData[i].Make+"</h2>";
-
-                    element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
-
-                    element+="<div class=CameraInfo><p id=Camera_Set_Location>"+CameraData[i].Camera_Set_Location+"</p><p id=Camera_Operator>"+CameraData[i].Camera_Operator+"</p></div></div></div>";
-                
-                }
-            
-                $('#CameraData').append(element);
-            
-            });
-	// document.getElementsById('all_forms').reset();
-	// console.log("good to go");
-// };
-
-</script>
+	</script>
 
 </body>
-</html>

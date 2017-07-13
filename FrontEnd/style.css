@@ -1,34 +1,49 @@
-#CameraData {
+.body {
+	margin: 0px 0px 0px 0px; 
+	width: 100%
+	height:100%;
+	background-color: lightgrey;
+}
+
+.grid {
+/*	outline: solid;*/
+	margin-top: 51px;
+/*	height: 600px;*/
+
+}
+
+.leftbar {
+	background-color: grey;
+	height: 100%;
 	width: auto;
-	/*outline: solid;*/
+	float: left;
+	top: 51px;
 }
 
-.header h2 {
+.data {
+	height: auto;
+	width: 100%;
+	float: right;
 	display: inline-block;
+	margin-bottom: 10px;
+	margin-top: 10px; 
 }
 
-#Make {
-	font-weight: bolder;
-	font-size: 40px;
-	margin-top: 11px;
-}
-#Model {
-	font-weight: lighter;
-	margin-left: 10px;
-	text-transform: uppercase;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right:11px;
+.forms {
+	margin-top: 20px;
 }
 
-.CameraInfo {
-	margin-left:10px; 
-} 
+.cameras {
+/*	outline: solid;*/
+	margin-left: 250px;
+	margin-right: 100px;
+}
 
-.Camera {
+.cambox {
+	height: 400px;
 	background-color: white;
-	padding-left: 10px;
-	margin-bottom: 20px;
-	border-radius: 10px;
-	padding-bottom: 10px;
+	border-radius: 6px;
+	width: auto;
+	padding: 12px 12px 12px 12px;
+	margin-top: 10px; 
 }
