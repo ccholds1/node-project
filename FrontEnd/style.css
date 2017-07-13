@@ -39,8 +39,8 @@
 	margin-right: 100px;
 }
 
-.cambox {
-	height: 400px;
+#CameraData {
+	height: auto;
 	background-color: white;
 	border-radius: 6px;
 	width: auto;
