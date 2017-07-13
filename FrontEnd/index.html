@@ -141,11 +141,7 @@
 				// console.log('I\'m hit');
 			
 
-			$('#id').val();
-			$('#make').val();
-			$('#model').val();
-			$('#location').val();
-			$('#operator').val();
+			// 
 
 			var CameraData = {
 				"id": $('#id').val(),
@@ -157,7 +153,12 @@
 
 	$.post('/CameraData', CameraData, function(err,res){
 			// console.log(CameraData)		
-
+			console.log("hello");
+			$('#id').val("");
+			$('#make').val("");
+			$('#model').val("");
+			$('#location').val("");
+			$('#operator').val("");
 
 			});
 
