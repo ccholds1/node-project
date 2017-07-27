@@ -14,12 +14,12 @@ app.use(bodyParser.json())
 //     return console.log('something bad happened', err)
 //   }
 
-app.listen(3333, function(err) {  
+app.listen(process.env.PORT || 5000, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
 // console.log(`Magic is happening on ${process.env.PORT}`)
-  console.log(`Magic is happening on ${port}`)
+  console.log(`Magic is happening on ${process.env.PORT}`)
 });
 
 
