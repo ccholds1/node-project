@@ -132,6 +132,7 @@ app.post('/deleteCamera', function(request, response){
 			}else{
 				console.log('hello');
 				console.log(camera);
+				response.send(camera)
 				// console.log(_id);
 			}
 		})
