@@ -9,14 +9,17 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.listen(process.env.PORT || 5000, function(err) {  
+// app.listen(process.env.PORT || 5000, function(err) {  
+//   if (err) {
+//     return console.log('something bad happened', err)
+//   }
+
+app.listen(3333, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
-
-
-
-  console.log(`Magic is happening on ${process.env.PORT}`)
+// console.log(`Magic is happening on ${process.env.PORT}`)
+  console.log(`Magic is happening on ${port}`)
 });
 
 
@@ -120,7 +123,43 @@ app.post('/CameraData', function(request, response){
 // console.log(CameraData);
  })
 
+app.post('/deleteCamera', function(request, response){
+	
+
+		Cameras.findByIdAndRemove(request.body.id, function(err,camera){
+			if (err){
+				console.log(err)
+			}else{
+				console.log('hello');
+				console.log(camera);
+				// console.log(_id);
+			}
+		})
+
+
+});
+
+
+
+app.get('/CameraData', function(request, response){
+	Cameras.find(request.body, function(err,cameras){
+		if(err){
+			console.log('you shall not pass');
+		}else{
+			response.send(cameras);
+			// console.log(Camera);
+			// console.log('great success!');
+			
+		}
+	});
+// response.send(CameraData);
+// console.log('route succesfully getting hit');
+});
+
+
 app.use(express.static('FrontEnd'));
+
+
 
 
 

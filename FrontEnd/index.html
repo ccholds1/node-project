@@ -65,7 +65,7 @@
 	</nav>
 
 <div class="row" style="background-color: lightgrey; margin-right:0px;">
-	<div id="CameraData" style="margin-left: 40px;margin-top: 68px; display: inline-block; w"></div>
+	<div ng-app="myApp" ng-contoller="myCtrl" id="CameraData" style="margin-left: 40px;margin-top: 68px; display: inline-block; "></div>
 	<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-3" style="height:920px; background-color: grey; padding-top: 65px; margin-left: 12px;">
 		<div>
 			<div id="all_forms" class="input-forms" style="margin: auto;">
@@ -103,36 +103,38 @@
 	</div> <!--form side-bar-->
 
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script>
 
-var url = 'camtrak-demo-app.herokuapp.com'
+// var url = 'camtrak-demo-app.herokuapp.com'
 
-	$('#submit').click(function(){
-			// console.log('I\'m hit');
+// 	$('#submit').click(function(){
+// 			// console.log('I\'m hit');
 		
 
-		$('#id').val();
-		$('#make').val();
-		$('#model').val();
-		$('#location').val();
-		$('#operator').val();
+// 		$('#id').val();
+// 		$('#make').val();
+// 		$('#model').val();
+// 		$('#location').val();
+// 		$('#operator').val();
 
-		var CameraData = {
-			"id": $('#id').val(),
-			"Make": $('#make').val(),
-			"Model": $('#model').val(),
-			"Camera_Set_Location": $('#location').val(),
-			"Camera_Operator": $('#operator').val()
-				}
+// 		var CameraData = {
+// 			"id": $('#id').val(),
+// 			"Make": $('#make').val(),
+// 			"Model": $('#model').val(),
+// 			"Camera_Set_Location": $('#location').val(),
+// 			"Camera_Operator": $('#operator').val()
+// 				}
 
-$.post('/CameraData', CameraData, function(err,res){
-		// console.log(CameraData)		
+// $.post('/CameraData', CameraData, function(err,res){
+// 		// console.log(CameraData)		
 
+// 		function reset(){
+// 			document.getElementById("all_forms").reset();
+// 			}
+// 		});
 
-		});
-
-	});
+// 	});
 
 
 	// window.onload = function (){
@@ -143,28 +145,39 @@ $.post('/CameraData', CameraData, function(err,res){
 	
 
 
-$.get('/CameraData', function(data){
-                CameraData=data;
-                var element ="";
-                console.log(data);
-                for (var i = 0; i < CameraData.length; i++){
+// $.get('/CameraData', function(data){
+//                 CameraData=data;
+//                 var element ="";
+//                 console.log(data);
+//                 for (var i = 0; i < CameraData.length; i++){
                     
                     
-                    element+="<div class=Camera><div class=header><h2 id=Make>"+CameraData[i].Make+"</h2>";
+//                     element+="<div class=Camera><div class=header><h2 id=Make>"+CameraData[i].Make+"</h2>";
 
-                    element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
+//                     element+="<h2 id=Model>"+CameraData[i].Model+"</h2></div>";
 
-                    element+="<div class=CameraInfo><p id=Camera_Set_Location>"+CameraData[i].Camera_Set_Location+"</p><p id=Camera_Operator>"+CameraData[i].Camera_Operator+"</p></div></div></div>";
+//                     element+="<div class=CameraInfo><p id=Camera_Set_Location>"+CameraData[i].Camera_Set_Location+"</p><p id=Camera_Operator>"+CameraData[i].Camera_Operator+"</p></div></div></div>";
                 
-                }
+//                 }
             
-                $('#CameraData').append(element);
+//                 $('#CameraData').append(element);
             
-            });
+//             });
 	// document.getElementsById('all_forms').reset();
 	// console.log("good to go");
 // };
 
+// function myFunction() {
+//     document.getElementById("#all_forms").reset();
+// }
+var app = angular.module("myApp", []);
+
+app.controller("myCtrl", function($scope,$http){
+
+	$http.get("http://camtrak-demo-app.herokuapp.com/CameraData").then(function (response){
+		console.log(response.data);
+	});	
+});
 </script>
 
 </body>
