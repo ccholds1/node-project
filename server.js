@@ -117,6 +117,7 @@ app.post('/CameraData', function(request, response){
 			console.log('wtf');
 		}else{
 			console.log("hell yeah brother");
+			response.send(camera);
 		}
 	});
 // CameraData.push(request.body);
