@@ -112,7 +112,7 @@ app.post('/CameraData', function(request, response){
 	var camera = new Cameras(request.body);
 	console.log("this is my new camera data:", camera);
 	// console.log(camera);
-	camera.save(function(err) {
+	camera.save(function(err,camera) {
 		if(err){
 			console.log('wtf');
 		}else{
